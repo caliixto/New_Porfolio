@@ -2,10 +2,16 @@
 .layout__menu-toggle{
     display: none;
 }
+body,html{
+overflow-x: hidden;
+width: 100%;
+scroll-behavior: smooth;
+}
 
 @media (max-width: 1490px){
     body{
         padding: 0;
+        overflow-x: hidden;
     }
     .layout{
         min-width: auto;
@@ -34,8 +40,8 @@
     }
 
     .layout{
-        width: 100%;
-        height: 100%;
+        width: auto;
+        height: auto;
         min-height: 100%;
         margin: 0;
         border-radius: 0;
@@ -79,28 +85,28 @@
         opacity: 0;
     }
 
-     .layout__aside{
-        z-index: 999;
-        display: block;
-        position: absolute;
-        max-width: 330px;
-        top:0;
-        right: 0;
-        bottom: 0;
-         text-align: center;
-        overflow: auto;
-        border-radius: 0;
-        transition: all 300ms ease-in-out;
+    .layout__aside {
+    z-index: 999;
+    display: block;
+    position: absolute;
+    max-width: 330px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    overflow: auto;
+    border-radius: 0;
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: auto;
+    transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+    }
 
-        margin-right: -100%;
-        opacity: 0;
-     }
-
-     .layout__aside--visible{
-        width: 100%;
-        margin-right: 0;
+    .layout__aside--visible {
+        transform: translateX(0);
         opacity: 1;
-     }
+        pointer-events: auto;
+    }
 
       .layaout__aside--hidden{
         margin-right: -100%;
@@ -174,7 +180,8 @@
     }
     .content__page{
          border-radius: 0;
-         height: 100vh;
+         min-height: 100vh;
+         height: auto;
     }
 
 }
